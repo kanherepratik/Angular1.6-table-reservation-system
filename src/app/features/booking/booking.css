@@ -1,0 +1,29 @@
+.dropdown-btn {
+  background-color: #ffffff;
+  width: 100%;
+  text-align: left;
+  color: #000;
+  border: 1px solid #ccc;
+}
+
+.dropdown-btn span {
+  margin-left: 60px !important;
+}
+input.datebox {
+  border-radius: 5px;
+}
+.stylish-input-group {
+  width: 297px;
+}
+.stylish-input-group .input-group-addon {
+  background: white !important;
+}
+.stylish-input-group .form-control {
+  border-right: 0;
+  box-shadow: 0 0 0;
+  border-color: #ccc;
+}
+.stylish-input-group button {
+  border: 0;
+  background: transparent;
+}
