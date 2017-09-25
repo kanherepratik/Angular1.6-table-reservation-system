@@ -1,44 +1,8 @@
-.booking-block {
-  /* width: 50%; */
-  /* margin: 0 auto; */
-}
-.dropdown-btn {
-  background-color: #ffffff;
-  width: 100%;
-  text-align: left;
-  color: #000;
-  border: 1px solid #ccc;
+html {
+  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-size: 14px;
 }
 
-.dropdown-btn span {
-  margin-left: 60px !important;
-}
-input.datebox {
-  border-radius: 5px;
-}
-.stylish-input-group {
-  width: 297px;
-}
-.stylish-input-group .input-group-addon {
-  background: white !important;
-}
-.stylish-input-group .form-control {
-  border-right: 0;
-  box-shadow: 0 0 0;
-  border-color: #ccc;
-}
-.stylish-input-group button {
-  border: 0;
-  background: transparent;
-}
-.restaurant {
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
-.rest-card {
-  min-height: 532px;
-  margin-bottom: 50px;
-}
 h5 {
   font-size: 1.28571429em;
   font-weight: 700;
@@ -68,16 +32,13 @@ h5 {
 .card-img-top {
   display: block;
   width: 100%;
-  min-height: 387px;
+  height: auto;
 }
 
 .card-title {
   font-size: 1.28571429em;
   font-weight: 700;
   line-height: 1.2857em;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .card-text {
@@ -150,10 +111,4 @@ h5 {
 
 .meta a:hover {
   color: rgba(0, 0, 0, 0.87);
-}
-
-/* helper classes */
-
-.w100 {
-  width: 100%;
 }

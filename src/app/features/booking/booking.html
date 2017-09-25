@@ -1,12 +1,12 @@
-<div class="booking-block">
-    <div class="container">
+<div class="booking-block row">
+    <div class="col-xs-12">
         <h1>Book a table</h1>
         <form class="form-inline">
             <div class="form-group">
                 <div class="input-group" uib-dropdown>
                     <button id="btn-append-to-single-button" type="button" class="btn dropdown-btn" uib-dropdown-toggle>
-                                                  {{$ctrl.selectedPeople}} <span class="caret"></span>
-                                        </button>
+                                                          {{$ctrl.selectedPeople}} <span class="caret"></span>
+                                                </button>
                     <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-single-button">
                         <li role="menuitem" ng-repeat="people in $ctrl.noOfPeople"><a href="#">{{people}}</a></li>
                         <li class="divider"></li>
@@ -17,7 +17,7 @@
             <div class="form-group">
                 <div class="input-group" uib-dropdown>
                     <button id="btn-append-to-single-button" type="button" class="btn dropdown-btn" data-ng-model="$ctrl.date" uib-dropdown-toggle>{{ $ctrl.date | date:'dd-MMM-yyyy hh:mm' }}<span class="caret"></span>
-                    </button>
+                            </button>
                     <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-single-button">
                         <datetimepicker data-ng-model="$ctrl.date" data-on-set-time="$ctrl.onTimeSet(newDate, oldDate)" data-datetimepicker-config="{ modelType:'Date',startView:'day'}"></datetimepicker>
                     </ul>
@@ -27,13 +27,33 @@
                 <div class="input-group stylish-input-group">
                     <input type="text" class="form-control" placeholder="Location,Restaurant, or Cuisine">
                     <span class="input-group-addon">
-                    <button type="submit">
-                        <span class="glyphicon glyphicon-search"></span>
+                            <button type="submit">
+                                <span class="glyphicon glyphicon-search"></span>
                     </button>
                     </span>
                 </div>
+                <button type="submit" class="btn btn-danger" ng-click="$ctrl.getLocation()">Find a Table</button>
             </div>
         </form>
+    </div>
+</div>
+<!-- end of booking-block -->
+<div class="restaurant">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 mt-4 rest-card" ng-repeat="rest in $ctrl.restuarant">
+            <div class="card card-inverse card-info">
+                <img class="card-img-top" ng-src="{{rest.image_url}}">
+                <div class="card-block">
 
+                    <h4 class="card-title">{{rest.name}}</h4>
+                    <div class="card-text">
+                        {{rest.address}}
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="{{rest.reserve_url}}" class="btn btn-danger btn-sm">Reserve Table</a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
