@@ -13,7 +13,8 @@ import templateUrl from "./booking.html";
 
 var bookingComponent = {
   template: templateUrl,
-  controller: bookController
+  controller: bookController,
+  bindings: {}
 };
 
 export default angular

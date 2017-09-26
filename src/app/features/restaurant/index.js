@@ -1,15 +1,18 @@
 import angular from "angular";
 
-import locationService from "../../../services/location.service";
 import restaurantController from "./restaurant.controller";
 import templateUrl from "./restaurant.html";
-// import "./booking.css";
+import "./restaurant.css";
+import pagination from "angular-ui-bootstrap/src/pagination";
 
 var restaurantComponent = {
   template: templateUrl,
-  controller: restaurantController
+  controller: restaurantController,
+  bindings: {
+    rest: "<"
+  }
 };
 
 export default angular
-  .module("app.restaurant", [locationService])
+  .module("app.restaurant", [pagination])
   .component("restaurantComponent", restaurantComponent).name;

@@ -1,8 +1,11 @@
-html {
-  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
-  font-size: 14px;
+.restaurant {
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
-
+.rest-card {
+  min-height: 532px;
+  margin-bottom: 50px;
+}
 h5 {
   font-size: 1.28571429em;
   font-weight: 700;
@@ -32,13 +35,16 @@ h5 {
 .card-img-top {
   display: block;
   width: 100%;
-  height: auto;
+  min-height: 387px;
 }
 
 .card-title {
   font-size: 1.28571429em;
   font-weight: 700;
   line-height: 1.2857em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .card-text {
@@ -111,4 +117,12 @@ h5 {
 
 .meta a:hover {
   color: rgba(0, 0, 0, 0.87);
+}
+
+.price {
+  padding: 5px;
+  color: #000;
+}
+.price span {
+  padding: 2px;
 }

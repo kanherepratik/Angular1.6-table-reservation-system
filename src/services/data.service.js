@@ -6,8 +6,16 @@ class Data {
     this.appUrl = "http://opentable.herokuapp.com/api/";
   }
 
-  getData(zip) {
-    return this._$http.get(this.appUrl + "restaurants?zip=" + zip);
+  getData(zip, currPage, per_page) {
+    return this._$http.get(
+      this.appUrl +
+        "restaurants?zip=" +
+        zip +
+        "&page=" +
+        currPage +
+        "&per_page=" +
+        per_page
+    );
   }
 }
 

@@ -1,0 +1,30 @@
+<div class="restaurant">
+    <div class="row">
+        <div class="container">
+            <h2>Nearest Restaurants</h2>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 mt-4 rest-card" ng-repeat="rest in $ctrl.restaurant">
+            <div class="card card-inverse card-info">
+                <img class="card-img-top" ui-sref="viewRest({name:rest.name})" ng-src="{{rest.image_url}}">
+                <div class="card-block">
+
+                    <h4 class="card-title" ui-sref="viewRest({name:rest.name})">{{rest.name}}</h4>
+                    <div class="card-text">
+                        {{rest.address}} | {{rest.area}} | {{rest.state}}
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="{{rest.reserve_url}}" class="btn btn-danger btn-sm">Reserve Table</a>
+                    <div class="price pull-right">
+                        <span ng-if="rest.price===1">$</span>
+                        <span ng-if="rest.price===2">$$</span>
+                        <span ng-if="rest.price===3">$$$</span>
+                        <span ng-if="rest.price===4">$$$$</span>
+                        <span ng-if="rest.price===5">$$$$$</span>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
