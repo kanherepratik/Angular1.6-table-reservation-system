@@ -5,10 +5,10 @@
         </div>
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 mt-4 rest-card" ng-repeat="rest in $ctrl.restaurant">
             <div class="card card-inverse card-info">
-                <img class="card-img-top" ui-sref="viewRest({name:rest.name})" ng-src="{{rest.image_url}}">
+                <img class="card-img-top" ui-sref="viewRest({id:rest.id})" ng-src="{{rest.image_url}}">
                 <div class="card-block">
 
-                    <h4 class="card-title" ui-sref="viewRest({name:rest.name})">{{rest.name}}</h4>
+                    <h4 class="card-title" ui-sref="viewRest({id:rest.id})">{{rest.name}}</h4>
                     <div class="card-text">
                         {{rest.address}} | {{rest.area}} | {{rest.state}}
                     </div>
@@ -26,5 +26,7 @@
                 <div class="clearfix"></div>
             </div>
         </div>
+        <no-records-component ng-if="$ctrl.restaurant.length === 0">
+        </no-records-component>
     </div>
 </div>

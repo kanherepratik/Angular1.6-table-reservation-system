@@ -1,0 +1,18 @@
+<div class="container">
+    <booking-component></booking-component>
+    <div class="row">
+        <div class="col-xs-4"><img ng-src="{{$ctrl.restaurant.image_url}}" class="img img-responsive img-lg" alt="{{$ctrl.restaurant.name}}"></div>
+        <div class="col-xs-8">
+            <h2>{{$ctrl.restaurant.name}}</h2>
+            <p>
+                {{$ctrl.restaurant.address}} | {{$ctrl.restaurant.area}}
+            </p>
+            <span>{{$ctrl.restaurant.phone}}</span>
+            <span ng-if="$ctrl.restaurant.price===1">$</span>
+            <span ng-if="$ctrl.restaurant.price===2">$$</span>
+            <span ng-if="$ctrl.restaurant.price===3">$$$</span>
+            <span ng-if="$ctrl.restaurant.price===4">$$$$</span>
+            <span ng-if="$ctrl.restaurant.price===5">$$$$$</span>
+        </div>
+    </div>
+</div>

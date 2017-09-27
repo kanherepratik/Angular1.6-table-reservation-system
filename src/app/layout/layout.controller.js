@@ -15,20 +15,24 @@ export default class layoutController {
     this.locationService.getLocation().then(res => {
       this.location = res;
       // let zip = this.location.zipcode;
-      this.dataService.getData(zip, this.currPage, this.per_page).then(res => {
-        // console.log(res.data);
-        this.restaurant = res.data.restaurants;
-        this.totalPage = res.data.total_entries;
-      });
+      this.dataService
+        .getData(zip, this.currPage, this.per_page, "Chicago")
+        .then(res => {
+          // console.log(res.data);
+          this.restaurant = res.data.restaurants;
+          this.totalPage = res.data.total_entries;
+        });
     });
   }
   pageChanged() {
     this.currPage = this.currentPage;
-    this.dataService.getData(zip, this.currPage, this.per_page).then(res => {
-      console.log(res.data);
-      this.restaurant = res.data.restaurants;
-      this.totalPage = res.data.total_entries;
-    });
+    this.dataService
+      .getData(zip, this.currPage, this.per_page, "Chicago")
+      .then(res => {
+        console.log(res.data);
+        this.restaurant = res.data.restaurants;
+        this.totalPage = res.data.total_entries;
+      });
   }
   showBooking() {
     if (this.restaurant.length) return true;

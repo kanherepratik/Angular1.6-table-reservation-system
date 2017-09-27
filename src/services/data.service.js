@@ -6,7 +6,9 @@ class Data {
     this.appUrl = "http://opentable.herokuapp.com/api/";
   }
 
-  getData(zip, currPage, per_page) {
+  getData(zip, currPage, per_page, city) {
+    if (!angular.isDefined(currPage)) currPage = 1;
+    if (!angular.isDefined(per_page)) per_page = 15;
     return this._$http.get(
       this.appUrl +
         "restaurants?zip=" +
@@ -14,8 +16,13 @@ class Data {
         "&page=" +
         currPage +
         "&per_page=" +
-        per_page
+        per_page +
+        "&city=" +
+        city
     );
+  }
+  getSingleRestData(id) {
+    return this._$http.get(this.appUrl + "restaurants/" + id);
   }
 }
 
