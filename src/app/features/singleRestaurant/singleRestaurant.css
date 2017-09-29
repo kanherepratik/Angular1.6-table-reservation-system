@@ -1,1 +1,53 @@
+.single-rest {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.booking-block {
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+.dropdown-btn {
+  background-color: #ffffff;
+  width: 100%;
+  text-align: left;
+  color: #000;
+  border: 1px solid #ccc;
+  border-radius: unset;
+}
 
+.dropdown-btn span {
+  margin-left: 60px !important;
+}
+input.datebox {
+  border-radius: 5px;
+}
+.stylish-input-group {
+  width: 373px;
+}
+.stylish-input-group .input-group-addon {
+  background: white !important;
+}
+.stylish-input-group .form-control {
+  border-right: 0;
+  box-shadow: 0 0 0;
+  border-color: #ccc;
+  border-radius: unset;
+}
+.stylish-input-group button {
+  border: 0;
+  background: transparent;
+}
+.stylish-input-group span {
+  padding: 0 10px 0 0;
+  border-radius: unset;
+}
+.slots-btn {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  min-width: 86px;
+}
+/* helper classes */
+
+.w100 {
+  width: 100%;
+}

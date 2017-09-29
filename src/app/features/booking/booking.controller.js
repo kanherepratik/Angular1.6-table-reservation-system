@@ -1,22 +1,15 @@
 export default class bookingController {
-  constructor() {
-    this.date = new Date();
-    this.noOfPeople = [
-      "1 person",
-      "2 people",
-      "3 people",
-      "4 people",
-      "5 people",
-      "6 people"
-    ];
-    this.selectedPeople = this.noOfPeople[1];
+  constructor($stateParams) {
+    this.param = $stateParams;
+    this.isSuccess = true;
   }
-
-  $onInit() {}
-
-  onTimeSet(newDate, oldDate) {
-    console.log(newDate);
-    this.date = newDate;
+  /* 
+  beautyEncode(string) {
+    string = string.replace(/ /g, "");
+    return string;
+  } */
+  completeReserve() {
+    this.isSuccess = !this.isSuccess;
   }
 }
-bookingController.$inject = [];
+bookingController.$inject = ["$stateParams"];

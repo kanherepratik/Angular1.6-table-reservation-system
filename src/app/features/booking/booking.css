@@ -1,45 +1,17 @@
-.booking-block {
-  /* width: 50%; */
-  /* margin: 0 auto; */
+.alert ul li {
+  display: inline-block;
+  margin-right: 50px;
 }
-.dropdown-btn {
-  background-color: #ffffff;
-  width: 100%;
-  text-align: left;
-  color: #000;
-  border: 1px solid #ccc;
-  border-radius: unset;
+.booking-block .success {
+  margin-top: 10%;
+  /* background-color: green; */
 }
-
-.dropdown-btn span {
-  margin-left: 60px !important;
+.booking-block .success .alert {
+  background-color: #dff0d8;
+  border-color: #dff0d8;
+  color: #3c763d;
 }
-input.datebox {
-  border-radius: 5px;
-}
-.stylish-input-group {
-  width: 373px;
-}
-.stylish-input-group .input-group-addon {
-  background: white !important;
-}
-.stylish-input-group .form-control {
-  border-right: 0;
-  box-shadow: 0 0 0;
-  border-color: #ccc;
-  border-radius: unset;
-}
-.stylish-input-group button {
-  border: 0;
-  background: transparent;
-}
-.stylish-input-group span {
-  padding: 0 10px 0 0;
-  border-radius: unset;
-}
-
-/* helper classes */
-
-.w100 {
-  width: 100%;
+.text-input {
+  margin-bottom: 10px;
+  min-width: 172px;
 }

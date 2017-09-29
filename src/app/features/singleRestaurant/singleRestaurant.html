@@ -1,18 +1,60 @@
 <div class="container">
-    <booking-component></booking-component>
-    <div class="row">
-        <div class="col-xs-4"><img ng-src="{{$ctrl.restaurant.image_url}}" class="img img-responsive img-lg" alt="{{$ctrl.restaurant.name}}"></div>
-        <div class="col-xs-8">
-            <h2>{{$ctrl.restaurant.name}}</h2>
+    <div class="booking-block row">
+        <div class="col-xs-12">
+            <h2>Book a table</h2>
+            <form class="form-inline">
+                <div class="form-group pull-left">
+                    <div class="input-group" uib-dropdown>
+                        <button id="btn-append-to-single-button" type="button" class="btn dropdown-btn" uib-dropdown-toggle>
+                                    {{$ctrl.selectedPeople}} <span class="caret"></span>
+                                 </button>
+                        <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-single-button">
+                            <li role="menuitem" ng-repeat="people in $ctrl.noOfPeople"><a ng-click="$ctrl.selectPeople(people)">{{people}}</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="form-group pull-left">
+                    <div class="input-group" uib-dropdown>
+                        <button id="btn-append-to-single-button" type="button" class="btn dropdown-btn" data-ng-model="$ctrl.date" uib-dropdown-toggle>{{ $ctrl.date | date:'dd-MMM-yyyy hh:mm' }}<span class="caret"></span>
+                                        </button>
+                        <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-single-button">
+                            <datetimepicker data-ng-model="$ctrl.date" data-on-set-time="$ctrl.onTimeSet(newDate, oldDate)" data-datetimepicker-config="{ modelType:'Date',startView:'day'}"
+                                data-before-render="$ctrl.startDateBeforeRender($dates)"></datetimepicker>
+                        </ul>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <!-- <div class="input-group stylish-input-group">
+                                <input type="text" class="form-control" placeholder="Location,Restaurant, or Cuisine">
+                                <span class="input-group-addon">
+                                    <i class="glyphicon glyphicon-search"></i>
+                                </span>
+                            </div> -->
+                    <button type="submit" class="btn btn-danger" ng-click="$ctrl.bookTable()">Find a Table</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- end of booking-block -->
+    <div class="time-slots" ng-if="$ctrl.showTimeSlots">
+        <button type="submit" class="btn btn-danger slots-btn" ng-repeat="slot in $ctrl.slots" ui-sref="reserve({name:$ctrl.restaurant.name,people:$ctrl.selectedPeople,slot:(slot),date:$ctrl.formatDate($ctrl.date)})">{{slot}}</button>
+    </div>
+    <div class="row single-rest">
+        <div class="col-xs-3"><img ng-src="{{$ctrl.restaurant.image_url}}" class="img img-responsive img-lg" alt="{{$ctrl.restaurant.name}}"></div>
+        <div class="col-xs-9">
+            <h2 style="margin: 0;">{{$ctrl.restaurant.name}}</h2>
             <p>
                 {{$ctrl.restaurant.address}} | {{$ctrl.restaurant.area}}
             </p>
-            <span>{{$ctrl.restaurant.phone}}</span>
-            <span ng-if="$ctrl.restaurant.price===1">$</span>
-            <span ng-if="$ctrl.restaurant.price===2">$$</span>
-            <span ng-if="$ctrl.restaurant.price===3">$$$</span>
-            <span ng-if="$ctrl.restaurant.price===4">$$$$</span>
-            <span ng-if="$ctrl.restaurant.price===5">$$$$$</span>
+            <p>
+                <span style="margin-right:70px"><strong>Phone Number</strong><br /><span>{{$ctrl.restaurant.phone}}</span></span>
+                <span ng-if="$ctrl.restaurant.price===1">$</span>
+                <span ng-if="$ctrl.restaurant.price===2">$$</span>
+                <span ng-if="$ctrl.restaurant.price===3">$$$</span>
+                <span ng-if="$ctrl.restaurant.price===4">$$$$</span>
+                <span ng-if="$ctrl.restaurant.price===5">$$$$$</span>
+            </p>
         </div>
     </div>
 </div>

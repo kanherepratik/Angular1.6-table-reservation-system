@@ -1,4 +1,4 @@
-const zip = "60654";
+// const zip = "60654";
 export default class layoutController {
   constructor(locationService, dataService) {
     this.locationService = locationService;
@@ -14,25 +14,39 @@ export default class layoutController {
   $onInit() {
     this.locationService.getLocation().then(res => {
       this.location = res;
-      // let zip = this.location.zipcode;
+      let zip = this.location.data.postal;
       this.dataService
         .getData(zip, this.currPage, this.per_page, "Chicago")
         .then(res => {
-          // console.log(res.data);
           this.restaurant = res.data.restaurants;
           this.totalPage = res.data.total_entries;
         });
     });
   }
+  findTable() {
+    const param = this.searchText;
+    console.log(param);
+    this.dataService.getByName(param).then(res => {
+      console.log(res);
+      this.restaurant = res.data.restaurants;
+      this.totalPage = 0;
+    });
+  }
+
   pageChanged() {
     this.currPage = this.currentPage;
-    this.dataService
-      .getData(zip, this.currPage, this.per_page, "Chicago")
-      .then(res => {
-        console.log(res.data);
-        this.restaurant = res.data.restaurants;
-        this.totalPage = res.data.total_entries;
-      });
+    this.locationService.getLocation().then(res => {
+      this.location = res;
+      let zip = this.location.data.postal;
+      console.log(zip);
+      this.dataService
+        .getData(zip, this.currPage, this.per_page, "Chicago")
+        .then(res => {
+          console.log(res.data);
+          this.restaurant = res.data.restaurants;
+          this.totalPage = res.data.total_entries;
+        });
+    });
   }
   showBooking() {
     if (this.restaurant.length) return true;

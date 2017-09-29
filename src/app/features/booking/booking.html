@@ -1,38 +1,45 @@
-<div class="booking-block row">
-    <div class="col-xs-12">
-        <h2>Book a table</h2>
-        <form class="form-inline">
-            <div class="form-group pull-left">
-                <div class="input-group" uib-dropdown>
-                    <button id="btn-append-to-single-button" type="button" class="btn dropdown-btn" uib-dropdown-toggle>
-                        {{$ctrl.selectedPeople}} <span class="caret"></span>
-                     </button>
-                    <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-single-button">
-                        <li role="menuitem" ng-repeat="people in $ctrl.noOfPeople"><a href="#">{{people}}</a></li>
-                        <li class="divider"></li>
-                        <li role="menuitem"><a href="#">Larger Party</a></li>
-                    </ul>
+<div class="container">
+    <div class="booking-block row">
+        <div class="col-xs-12" ng-class="{'success':!$ctrl.isSuccess}">
+            <div class="alert alert-info">
+                <h2 ng-if="!$ctrl.isSuccess">Success ! Table reserved.</h2>
+                <ul ng-if="$ctrl.isSuccess">
+                    <li>
+                        <h2>Guest</h2>
+                        <h4>{{$ctrl.param.people}}</h4>
+                    </li>
+                    <li>
+                        <h2>Time</h2>
+                        <h4>{{$ctrl.param.slot}}</h4>
+                    </li>
+                    <li>
+                        <h2>Date</h2>
+                        <h4>{{$ctrl.param.date}}</h4>
+                    </li>
+                    <li>
+                        <h2>Restaurant</h2>
+                        <h4>{{$ctrl.param.name}}</h4>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-xs-12" ng-if="$ctrl.isSuccess">
+            <form class="form-inline" autocomplete="on" name="myForm">
+                <div class="form-group">
+                    <div class="input-group text-input">
+                        <input type="text" class="form-control" placeholder="Name" ng-model="$ctrl.name" autofocus required>
+                    </div>
+                    <div class="input-group text-input">
+                        <input type="Email" class="form-control" placeholder="Email" ng-model="$ctrl.email" required>
+                    </div>
+                    <div class="input-group text-input">
+                        <input type="number" class="form-control" placeholder="Contact Number" ng-model="$ctrl.phone" pattern="[0-9]{10,10}$" required>
+                    </div>
+                    <input type="submit" value="Complete Reservation" class="btn btn-danger text-input" ng-disabled="!myForm.$valid" ng-click="$ctrl.completeReserve()">
                 </div>
-            </div>
-            <div class="form-group pull-left">
-                <div class="input-group" uib-dropdown>
-                    <button id="btn-append-to-single-button" type="button" class="btn dropdown-btn" data-ng-model="$ctrl.date" uib-dropdown-toggle>{{ $ctrl.date | date:'dd-MMM-yyyy hh:mm' }}<span class="caret"></span>
-                            </button>
-                    <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-single-button">
-                        <datetimepicker data-ng-model="$ctrl.date" data-on-set-time="$ctrl.onTimeSet(newDate, oldDate)" data-datetimepicker-config="{ modelType:'Date',startView:'day'}"></datetimepicker>
-                    </ul>
-                </div>
-            </div>
-            <div class="form-group">
-                <!-- <div class="input-group stylish-input-group">
-                    <input type="text" class="form-control" placeholder="Location,Restaurant, or Cuisine">
-                    <span class="input-group-addon">
-                        <i class="glyphicon glyphicon-search"></i>
-                    </span>
-                </div> -->
-                <button type="submit" class="btn btn-danger" ng-click="$ctrl.getData()">Find a Table</button>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 </div>
+
 <!-- end of booking-block -->

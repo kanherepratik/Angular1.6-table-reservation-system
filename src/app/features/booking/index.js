@@ -1,10 +1,7 @@
 import angular from "angular";
+import uirouter from "@uirouter/angularjs";
+import routing from "./booking.routes";
 
-import dropdown from "angular-ui-bootstrap/src/dropdown";
-import timepicker from "angular-bootstrap-datetimepicker";
-
-import "angular-bootstrap-datetimepicker/src/js/datetimepicker.templates";
-import "angular-bootstrap-datetimepicker/src/css/datetimepicker.css";
 import "./booking.css";
 
 import bookController from "./booking.controller";
@@ -16,5 +13,6 @@ var bookingComponent = {
 };
 
 export default angular
-  .module("app.book", [dropdown, timepicker])
+  .module("app.book", [uirouter])
+  .config(routing)
   .component("bookingComponent", bookingComponent).name;

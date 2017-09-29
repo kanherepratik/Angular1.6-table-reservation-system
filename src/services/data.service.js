@@ -21,8 +21,14 @@ class Data {
         city
     );
   }
+  getByName(name) {
+    return this._$http.get(this.appUrl + "restaurants?name=" + name);
+  }
   getSingleRestData(id) {
     return this._$http.get(this.appUrl + "restaurants/" + id);
+  }
+  getSearchData(param) {
+    return this._$http.get(this.appUrl + "restaurants?" + param + "=" + param);
   }
 }
 

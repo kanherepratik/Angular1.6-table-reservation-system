@@ -1,8 +1,10 @@
 <div class="container">
-    <div class="form-group pull-left">
-        <input type="text" class="form-control" name="search" value="" placeholder="Location or Restaurant">
+    <div class="search-bar">
+        <div class="form-group pull-left">
+            <input type="text" class="form-control" ng-model="$ctrl.searchText" name="search" value="" placeholder="Search Restaurant by name">
+        </div>
+        <button type="submit" class="btn btn-danger" ng-click='$ctrl.findTable()'>Find a Table</button>
     </div>
-    <button type="submit" class="btn btn-danger">Find a Table</button>
     <restaurant-component ng-if="$ctrl.showBooking()" rest=$ctrl.restaurant></restaurant-component>
     <ul uib-pagination total-items="$ctrl.totalPage" ng-model="$ctrl.currentPage" max-size="$ctrl.maxSize" class="pagination-sm"
         boundary-link-numbers="true" ng-if="$ctrl.totalPage" ng-change="$ctrl.pageChanged()"></ul>
