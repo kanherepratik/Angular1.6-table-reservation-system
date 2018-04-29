@@ -1,4 +1,4 @@
-// const zip = "60654";
+const zip = "60654";
 export default class layoutController {
   constructor(locationService, dataService) {
     this.locationService = locationService;
@@ -14,7 +14,7 @@ export default class layoutController {
   $onInit() {
     this.locationService.getLocation().then(res => {
       this.location = res;
-      let zip = this.location.data.postal;
+      //let zip = this.location.data.postal;
       this.dataService
         .getData(zip, this.currPage, this.per_page, "Chicago")
         .then(res => {
@@ -37,8 +37,8 @@ export default class layoutController {
     this.currPage = this.currentPage;
     this.locationService.getLocation().then(res => {
       this.location = res;
-      let zip = this.location.data.postal;
-      console.log(zip);
+      //let zip = this.location.data.postal;
+      //console.log(zip);
       this.dataService
         .getData(zip, this.currPage, this.per_page, "Chicago")
         .then(res => {
