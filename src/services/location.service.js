@@ -6,7 +6,7 @@ class location {
   }
 
   getLocation() {
-    return this._$http.get("http://ipinfo.io");
+    return this._$http.get("https://ipinfo.io");
   }
 }
 
