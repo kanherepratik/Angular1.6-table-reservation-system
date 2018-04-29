@@ -3,7 +3,7 @@ import angular from "angular";
 class Data {
   constructor($http) {
     this._$http = $http;
-    this.appUrl = "http://opentable.herokuapp.com/api/";
+    this.appUrl = "https://opentable.herokuapp.com/api/";
   }
 
   getData(zip, currPage, per_page, city) {
